@@ -9,6 +9,7 @@
   <link href="/css/default.css" rel="stylesheet"/>
   <link href="/css/fonts.css" rel="stylesheet"/>
   <link href="/css/app.css" rel="stylesheet"/>
+  @yield('head')
   <style>
     ul.pagination {
       display: flex;
@@ -38,7 +39,7 @@
 <div id="header-wrapper">
   <div id="header" class="container">
     <div id="logo">
-      <h1><a href="/">SimpleWork</a></h1>
+      <h1><a href="/">{{ env('APP_NAME') }}</a></h1>
     </div>
     <div id="menu">
       <ul>
