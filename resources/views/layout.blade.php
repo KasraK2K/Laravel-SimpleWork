@@ -24,6 +24,9 @@
     }
     ul.pagination > li.page-item > a.page-link {
       text-decoration: none !important;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 400;
+      color: #6F6F6F;
     }
     ul.pagination > li.page-item.active {
       background-color: #eee;
