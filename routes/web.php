@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 Route::get('/about', function () {
-    return view('about');
+  return view('about', [
+    "articles" => App\Models\Article::take(3)->latest()->get(),
+  ]);
 });
