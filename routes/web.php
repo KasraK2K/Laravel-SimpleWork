@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticlesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  return view('welcome');
+    return view('welcome');
 });
 
 Route::get('/about', function () {
-  return view('about', [
-    "articles" => App\Models\Article::take(3)->latest()->get(),
-  ]);
+    return view('about', [
+        "articles" => App\Models\Article::take(3)->latest()->get(),
+    ]);
 });
+
+Route::get('/articles', [ArticlesController::class, 'index']);
+
+Route::get('/articles/{article}', [ArticlesController::class, 'show']);
