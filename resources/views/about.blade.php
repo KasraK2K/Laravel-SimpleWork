@@ -50,6 +50,11 @@
                         <li @if($loop->first) class="first" @endif>
                             <h3><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></h3>
                             <p>{{ $article->excerpt }}</p>
+                            <p>
+                                @foreach($article->tags as $tag)
+                                    <a href="/articles?tag={{ $tag->name }}" class="tag">{{ $tag->name }}</a>
+                                @endforeach
+                            </p>
                         </li>
                     @endforeach
                 </ul>

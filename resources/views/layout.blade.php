@@ -9,31 +9,9 @@
   <link href="/css/default.css" rel="stylesheet"/>
   <link href="/css/fonts.css" rel="stylesheet"/>
   <link href="/css/app.css" rel="stylesheet"/>
+
   @yield('head')
-  <style>
-    ul.pagination {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-bottom: 50px;
-    }
-    ul.pagination > li.page-item {
-      padding: 10px;
-      border: 1px solid #eee;
-      margin: 0 5px;
-      box-shadow: 0 0 5px #eee;
-    }
-    ul.pagination > li.page-item > a.page-link {
-      text-decoration: none !important;
-      font-family: 'Source Sans Pro', sans-serif;
-      font-weight: 400;
-      color: #6F6F6F;
-    }
-    ul.pagination > li.page-item.active {
-      background-color: #eee;
-      border: 1px solid #ccc;
-    }
-  </style>
+
 </head>
 <body>
 <div id="header-wrapper">

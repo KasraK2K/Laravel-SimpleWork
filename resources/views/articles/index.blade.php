@@ -3,7 +3,7 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
-            @foreach($articles as $article)
+            @forelse($articles as $article)
                 <div id="content">
                     <div class="title">
                         <h2>
@@ -18,7 +18,9 @@
                         <hr style="opacity: 0.5; margin: 30px auto 50px; display: block;">
                     @endif
                 </div>
-            @endforeach
+            @empty
+                <p>No relevant articles yet.</p>
+            @endforelse
         </div>
         {{ $articles->links("pagination::bootstrap-4") }}
     </div>
