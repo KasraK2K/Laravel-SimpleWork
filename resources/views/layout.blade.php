@@ -5,7 +5,7 @@
   <title></title>
   <meta name="keywords" content=""/>
   <meta name="description" content=""/>
-  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet"/>
+{{--  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet"/>--}}
   <link href="/css/default.css" rel="stylesheet"/>
   <link href="/css/fonts.css" rel="stylesheet"/>
   <link href="/css/app.css" rel="stylesheet"/>

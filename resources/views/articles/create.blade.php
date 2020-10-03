@@ -22,7 +22,7 @@
                                 id="title"
                                 value="{{ old('title') }}">
                         @error('title')
-                            <p class="help is-danger">{{ $errors->first('title') }}</p>
+                            <p class="help is-danger">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                                 name="excerpt"
                                 id="excerpt">{{ old('excerpt') }}</textarea>
                         @error('excerpt')
-                            <p class="help is-danger">{{ $errors->first('excerpt') }}</p>
+                            <p class="help is-danger">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
@@ -50,7 +50,21 @@
                                 name="body"
                                 id="body">{{ old('body') }}</textarea>
                         @error('body')
-                            <p class="help is-danger">{{ $errors->first('body') }}</p>
+                            <p class="help is-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="tags">Tags</label>
+                    <div class="select is-multiple control">
+                        <select class="@error('tags') is-danger @enderror" name="tags[]" id="tags" multiple>
+                            @foreach($tags as $tag)
+                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('tags')
+                        <p class="help is-danger">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
