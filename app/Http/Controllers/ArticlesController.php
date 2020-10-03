@@ -12,9 +12,9 @@ class ArticlesController extends Controller
         return view('articles.index', ['articles' => $articles]);
     }
 
-    public function show($id)
+    public function show(Article $article)
     {
-        return view('articles.show', ['article' => Article::findOrFail($id)]);
+        return view('articles.show', ['article' => $article]);
     }
 
     public function create()
@@ -24,42 +24,27 @@ class ArticlesController extends Controller
 
     public function store()
     {
-        request()->validate([
-            'title'     => 'required|min:3|max:255',
-            'excerpt'   => 'required|min:10',
-            'body'      => 'required|min:10',
-        ]);
-
-        $article = new Article();
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
-        $article->save();
-
-        return redirect('/articles');
+        Article::create($this->validateArticle());
+        return redirect(route('articles.index'));
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = Article::findOrFail($id);
         return view('articles.edit', compact('article'));
     }
 
-    public function update($id)
+    public function update(Article $article)
     {
-        request()->validate([
-            'title'     => 'required|min:3|max:255',
-            'excerpt'   => 'required|min:10',
-            'body'      => 'required|min:10',
+        $article->update($this->validateArticle());
+        return redirect($article->path());
+    }
+
+    protected function validateArticle(): array
+    {
+        return request()->validate([
+            'title' => 'required|min:3|max:255',
+            'excerpt' => 'required|min:10',
+            'body' => 'required|min:10',
         ]);
-
-        $article = Article::findOrFail($id);
-
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
-        $article->save();
-
-        return redirect('/articles/' . $id);
     }
 }
