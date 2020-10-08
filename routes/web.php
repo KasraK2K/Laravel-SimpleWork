@@ -3,19 +3,18 @@
 use App\Http\Controllers\ArticlesController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+app()->bind('example', function () {
+    return new App\Example();
+});
 
 Route::get('/', function () {
-    return view('welcome');
+    return View::make('welcome');
+});
+
+Route::get('/bind', function () {
+//    $example = resolve(App\Example::class);
+//    ddd($example);
+    ddd(resolve('example'));
 });
 
 Route::get('/about', function () {
@@ -30,3 +29,10 @@ Route::get('/articles/create', [ArticlesController::class, 'create']);
 Route::get('/articles/{article}', [ArticlesController::class, 'show'])->name('articles.show');
 Route::get('/articles/{article}/edit', [ArticlesController::class, 'edit']);
 Route::put('/articles/{article}', [ArticlesController::class, 'update']);
+
+Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'contact']);
+Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store']);
+
+Route::get('/debug-sentry', function () {
+    throw new Exception('My first Sentry error!');
+});
