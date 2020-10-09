@@ -1,41 +1,8 @@
-$green: #16a99e;
-$white: #fff;
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-ul.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 50px;
-}
-ul.pagination > li.page-item {
-  padding: 10px;
-  border: 1px solid #eee;
-  margin: 0 5px;
-  box-shadow: 0 0 5px #eee;
-}
-ul.pagination > li.page-item > a.page-link {
-  text-decoration: none !important;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 400;
-  color: #6F6F6F;
-}
-ul.pagination > li.page-item.active {
-  background-color: #eee;
-  border: 1px solid #ccc;
-}
+// Variables
+@import 'variables';
 
-a.tag {
-  background-color: $green;
-  color: $white !important;
-  align-items: center;
-  border-radius: 4px;
-  display: inline-flex;
-  font-size: 0.75rem;
-  height: 2em;
-  justify-content: center;
-  line-height: 1.5;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-  white-space: nowrap;
-  text-decoration: none;
-}
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';

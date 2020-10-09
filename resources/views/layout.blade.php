@@ -26,6 +26,11 @@
         <li class="{{ Request::path() === 'about' ? 'current_page_item' : '' }}"><a href="/about" accesskey="3" title="">About Us</a></li>
         <li class="{{ Request::path() === 'articles' ? 'current_page_item' : '' }}"><a href="{{ route('articles.index') }}" accesskey="4" title="">Articles</a></li>
         <li class="{{ Request::path() === 'contact' ? 'current_page_item' : '' }}"><a href="/contact" accesskey="5" title="">Contact Us</a></li>
+        @auth
+          <li class="{{ Request::path() === 'contact' ? 'current_page_item' : '' }}"><a href="/home" accesskey="6" title="">Profile</a></li>
+        @else
+          <li class="{{ Request::path() === 'contact' ? 'current_page_item' : '' }}"><a href="/login" accesskey="6" title="">Login</a></li>
+        @endauth
       </ul>
     </div>
   </div>

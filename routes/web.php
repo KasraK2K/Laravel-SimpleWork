@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentsController;
+use App\Http\Controllers\UserNotificationsController;
 use Illuminate\Support\Facades\Route;
 
 app()->bind('example', function () {
@@ -36,3 +39,12 @@ Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store'
 Route::get('/debug-sentry', function () {
     throw new Exception('My first Sentry error!');
 });
+
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/payments/create', [PaymentsController::class, 'create'])->middleware('auth');
+Route::post('/payments', [PaymentsController::class, 'store'])->middleware('auth');
+
+Route::get('/notifications', [UserNotificationsController::class, 'show'])->middleware('auth');
