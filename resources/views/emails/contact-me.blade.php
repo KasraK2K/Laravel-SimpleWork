@@ -1,15 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-</head>
-<body>
-	<h1>It works again!</h1>
+@component('mail::message')
 
-	<p>Topic name is {{ $topic }}</p>
-</body>
-</html>
+# It works again!
+
+Topic name is {{ $topic }}
+
+- List element one
+- List element two
+- List element three
+- List element four
+
+@component('mail::button', ['url' => 'http://google.com'])
+	Visit Site Now
+@endcomponent
+
+@endcomponent
+

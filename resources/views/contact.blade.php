@@ -6,6 +6,7 @@
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="/css/tailwind.css" rel="stylesheet">
+{{--	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">--}}
 	<title>Contact</title>
 </head>
 <body class="bg-gray-100 flex items-center justify-center h-screen">
